@@ -1,10 +1,7 @@
-## Lists
-
--------
-# Intro
--------
+# Lists
 ```python
 lst = [] # empty list
+lst3=list() #empty list
 print(type(lst))
 
 names = ["Shubham", "Singh"]
@@ -70,5 +67,69 @@ pair=[[i, j] for i in lst1 for j in lst2] # Nested -> [[1, 'a], [1, 'b'], [1, 'c
 words = ["hello", "world", "python", "list", "comprehension"]
 lengths = [len(word) for word in words]
 print(lengths) # [5, 5, 6, 4, 13]
+```
 
+# Tuples
+```python
+# Tuples are ordered collections of items that are immutable. They are similar to lists, but their immutability makes them different.
+# Creating a tuple
+empty_tuple = ()
+print(empty_tuple) #()
+print(type(empty_tuple))
+
+lst = list()
+print(type(lst))
+
+tpl=tuple() # empty tuple
+print(type(tpl))
+
+lst_to_tuple=tuple([1, 2, 3, 4, 5, 6]) # convert list to tuple
+print(lst_to_tuple) # (1, 2, 3, 4, 5, 6)
+
+tuple_to_lst = list((1, 2, 3, 4, 5, 6)) # convert tuple to list
+print(tuple_to_lst)
+
+mixed_tuple=(1, "Hello world", 3.14, True)
+
+# Accessing tuple elements
+print(lst_to_tuple[0]) # first element of tuple -> 1
+print(lst_to_tuple[-1]) # last element of tuple -> 6
+print(lst_to_tuple[0:4]) # elements from index 0 to 3 (4 not included) -> (0, 1, 2, 3)
+print(lst_to_tuple[::]) # all elements of tuple.
+print(lst_to_tuple[::-1]) # all elements of tuple in reverse order.
+
+# Tuple operations
+concatenated_tuple = mixed_tuple + lst_to_tuple # concatenate two tuples -> (1, "Hello world", 3.14, True, 1, 2, 3, 4, 5, 6)
+repeated_tuple = mixed_tuple * 3 # a tuple with mixed_tuple repeated 3 times.
+
+# Immutable nature of tuples.
+# Tuples are immutable, i.e. their elements cannot be changed once assigned.
+lst=[1,2,3,4,5]
+print(lst)
+
+lst[1] = "shubham"
+print(lst) #lists are immutable -> ["shubham", 2, 3, 4, 5]
+
+lst_to_tuple[0] = 10 # error, tuple doesn't support assignment.
+
+# Tuple methods.
+print(lst_to_tuple.count(1)) # Number of times 1 is present in the tuple -> 1.
+print(lst_to_tuple.index(3)) # Index at which 3 is present in the tuple -> 2.
+
+# Packing and unpacking tuple
+packed_tuple=1,"Hello",3.14 #packing a tuple
+print(packed_tuple) # (1, "Hello", 3.14)
+
+a, b, c = packed_tuple #unpacking a tuple
+print(a, b, c) # 1 "Hello" 3.14
+
+numbers=(1,2,3,4,5,6)
+first,*middle,last=numbers # unpacking with *
+print(first) # first=1
+print(middle) # middle=[2,3,4,5]
+print(last) # last=6
+
+# Nested tuples
+tpl=((1,2,3,4), (6,7,8,9), (1, "Hello", 3.14, "c"))
+print(tpl[0][0:3]) # (1,2,3)
 ```
