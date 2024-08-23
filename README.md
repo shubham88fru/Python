@@ -180,3 +180,79 @@ set2 = {3, 4, 5}
 print(set1.issubset(set2)) # is set1 subset of set2? -> False
 print(set1.issuperset(set2)) # is set2 a superset of set2? -> False
 ```
+
+# Dictionaries
+```python
+# Creating dictionaries
+empty_dict = {} # empty dictionary
+empty_dict2 = dict() # empty dictionary
+
+student = { "name": "krish", "age": 32, "grade": 'A' }
+print(student)
+
+# check if present
+if "name" in student:
+    print("Yes")
+
+# Accessing dict elements
+print(student['grade']) # A
+print(student['age']) # 32
+
+# Accessing using get() method
+print(student.get("grade")) # 24
+print(student.get("name")) # krish
+print(student.get("last_name")) # None
+print(student.get("last_name", "LNU")) # LNU
+
+# Modifying dictionary elements.
+# Dictionaries are mutable, so you can add, update or delete elements.
+student['age'] = 33
+student['country'] = "India"
+
+# deleting a key
+del student["grade"]
+
+# Dictionary methods
+dicts_keys = student.keys() # All keys of the dict. -> ['name', 'age', 'grade' ]
+values = student.values() # All values of the dict. -> ["krish", 32, "A"]
+
+# get k-v pairs
+kv_pairs=student.items() # [('name', 'krish'), ('age', 32), ('grade', 'A')]
+
+#shallow copy
+student_cpy = student.copy() # creates a shallow copy of student.
+
+# Iterating over dictionaries.
+for key in student.keys():
+    print(key)
+
+for value in student.values():
+    print(value)
+
+for k,v in student.items():
+    print(f"{k}:{v}")
+
+# Nested dictionaries
+students = {
+    "student1": { "name": "Krish", "age": 32 },
+    "student2": { "name": "spider", "age": 35 },
+}
+
+# Access nested dictionary elements.
+print(students["student1"]["name"])
+
+# Iterating over nested dictionaries
+for student_id, student_info in students.items():
+    print(f"{student_id}:{student_info}")
+    for k,v in student_info.items():
+        print(f"{k}:{v}")
+
+# Dictionary comprehension
+squares = {f"{x}_sq": x**2 for x in range(5)} # square of nums from 0..4
+square_even = {f"{x}_sq": x**2 for x in range(5) if x%2==0} # square of even nums in range 0..4
+
+# merge two dicts
+dict1={"a": 1, "b": 2}
+dict2={"b": 3, "c": 4}
+merged_dict = {**dict1, **dict2} # {"a":1, "b":3, "c": 4}
+```
