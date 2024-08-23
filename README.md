@@ -133,3 +133,50 @@ print(last) # last=6
 tpl=((1,2,3,4), (6,7,8,9), (1, "Hello", 3.14, "c"))
 print(tpl[0][0:3]) # (1,2,3)
 ```
+
+# Sets
+```python
+# create a set
+my_set = { 1, 2, 3, 4, 5}
+empty_set = set()
+new_set = set([1, 2, 3, 4, 5]) # list to set.
+
+# basic set operations
+# Add/remove elements
+my_set.add(7) # add 7 to the set.
+my_set.remove(3) # remove 3 from the set.
+my_set.discard(10) # remove if 10 is present, else just ignore.
+my_set.clear() # clear the set.
+
+# membership test
+print(3 in my_set) # True
+print(10 in my_set) # False
+
+# Mathematical operations.
+set1 = { 1, 2, 3, 4, 5, 6 }
+set2 = { 4, 5, 6, 7, 8, 9 }
+
+# union
+union_set = set1.union(set2) # {1, 2, 3, 4, 5, 6, 7, 8, 9 }
+
+# Intersection
+int_set = set1.intersection(set2) # { 4, 5, 6 }
+
+set1.intersection_update(set2)
+print(set1) # find intersection and update set1 with the result of intersection.
+
+# Difference
+diff_set = set1.difference(set2)
+print(diff_set) # from set1, remove all the common elements present in set2 and return new set.
+
+# Symmetric difference
+symm_set = set1.symmetric_difference(set2)
+print(symm_set) # combine unique elements of both the sets and return a new set.
+
+# Set methods.
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+print(set1.issubset(set2)) # is set1 subset of set2? -> False
+print(set1.issuperset(set2)) # is set2 a superset of set2? -> False
+```
