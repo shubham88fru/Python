@@ -256,3 +256,51 @@ dict1={"a": 1, "b": 2}
 dict2={"b": 3, "c": 4}
 merged_dict = {**dict1, **dict2} # {"a":1, "b":3, "c": 4}
 ```
+
+# Functions
+```python
+# syntax/template
+def function_name(parameters):
+    """Doc string"""
+    #Body
+    return 1
+
+def even_or_odd(num):
+    """checks if given num is odd or even"""
+    if num%2==0:
+        print("The number is even")
+    else:
+        print("The number is odd")
+
+even_or_odd(1)
+even_or_odd(45)
+even_or_odd(100)
+
+# Default params
+def greet(name="Guest"):
+    print(f"Hello, {name}")
+
+greet("Shubham") # Hello, Shubham
+greet() # Hello, Guest
+
+# Variable length args - Positional and Keyword args.
+# 1. Positional args.
+def print_numbers(*args): # args is similar to `rest` operator in JS. *args will capture all positional arguments in function call.
+    for number in args:
+        print(number)
+
+print_numbers(1,2,3,4,5) # Solely positional args -> 1 2 3 4 5
+
+# 2. Keyword args.
+def print_details(**kwargs): # JS's rest operator for params with k-v pairs. **kwargs will capture all k-v pair type arguments in function call.
+    for k,v in kwargs.items():
+        print(k, v)
+
+print_details(name="Shubham", age="32", country="India")
+
+# Returning multiple values from a function
+def some_func(a, b):
+    return a*b,a
+
+some_func(2, 3) # returns a tuple -> (6, 2)
+```
