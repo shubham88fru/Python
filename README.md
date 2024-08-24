@@ -303,4 +303,9 @@ def some_func(a, b):
     return a*b,a
 
 some_func(2, 3) # returns a tuple -> (6, 2)
+
+# check if string is palindrome
+def is_palindrome(s):
+    s=s.lower().replace(" ", "")
+    return s==s[::-1] #string reversing
 ```
