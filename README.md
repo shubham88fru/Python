@@ -309,3 +309,53 @@ def is_palindrome(s):
     s=s.lower().replace(" ", "")
     return s==s[::-1] #string reversing
 ```
+
+# Lambda functions
+```python
+# Syntax/template -> lambda arguments: expression
+def addition(a, b):
+    return a+b
+
+addition(1, 5) # 6
+
+addition_lambda = lambda a, b: a+b
+addition_lambda(2, 3) # 5
+
+def even(num):
+    if (num%2==0):
+        return True
+even(24) # True
+
+even_lambda = lambda num: num%2==0
+even_lambda(24) # True
+
+# map() function
+numbers=[1,2,3,4,5,6]
+def square(num):
+    return num**2
+
+sq_lambda = lambda x: x**2
+sq_nums = list(map(sq_lambda, numbers)) # [1,4,9,16,25,16]
+
+# Map multiple iterables
+numbers1 = [1,2,3]
+numbers2 = [4,5,6]
+added_numbers=list(map(lambda x,y: x+y, numbers1, numbers2)) # [5, 7, 9]
+
+# Map to convert a list of strings to integers
+str_numbers = ['1', '2', '3', '4', '5']
+int_numbers = list(map(int, str_numbers)) # [1,2,3,4,5]
+
+words=['apple', 'banana', 'cherry']
+upper_words=list(map(str.upper, words))
+
+def get_name(person):
+    return person['name']
+
+people=[
+    {'name': 'Krish', 'age': 31},
+    {'name': 'Jack', 'age': 33 }
+]
+
+names=list(map(get_name, people)) # ['Krish', 'Jack']
+```
