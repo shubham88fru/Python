@@ -358,4 +358,10 @@ people=[
 ]
 
 names=list(map(get_name, people)) # ['Krish', 'Jack']
+
+# filter() function
+lst = [1,2,3,4,5,6,7,8,9,10]
+even_nums = list(filter(even, lst)) # [2,4,6,8,10]
+greater_than_five = list(filter(lambda x:x>5, lst)) # [6,7,8,9,10]
+even_and_gt_5 = list(filter(lambda x:(x>5 and x%2==0), lst))
 ```
