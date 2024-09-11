@@ -365,3 +365,72 @@ even_nums = list(filter(even, lst)) # [2,4,6,8,10]
 greater_than_five = list(filter(lambda x:x>5, lst)) # [6,7,8,9,10]
 even_and_gt_5 = list(filter(lambda x:(x>5 and x%2==0), lst))
 ```
+
+# Modules and Packages
+```python
+import math # importing a package in its entirety
+math.sqrt(16) # 4
+
+from math import sqrt, pi # import sqrt and pi from math module.
+sqrt(16) # 4
+sqrt(25) # 5
+pi # 3.14
+
+import math as m # set alias to math package.
+
+from math import * # import everything from math module.
+
+# Steps to create your own package and module.
+# 1. Create a folder with any name (e.g. package)
+# 2. Create a file named `__init__.py` inside the folder.
+# 3. Doing step 2 declares the folder as a package and then each
+# file inside the folder will be a module which can be imported like - 
+# from package.my_module import hello
+```
+
+# Python standard library
+```python
+import random
+print(random.randint(1, 10)) # random integer between 1 to 10.
+print(random.choice(['apple', 'banana', 'mango', 'cherry'])) # random element from the list.
+
+# file and directory access.
+import os
+print(os.getcwd()) # get current working directory.
+os.mkdir("test_dir") # creat a folder named `test_dir` in the current folder.
+
+# data serialization
+import json
+data = { 'name': 'Krish', 'age': 25 }
+data_json_str = json.dumps(data) # convert the dict to json string rep.
+print(data_json_str)
+
+data_dict = json.loads(data_json_str) # convert json to dict rep.
+print(data_dict)
+
+# working with csv
+import csv
+# create a csv file and write two rows to it.
+with open("example.csv", mode='w') as file:
+    writer = csv.writer(file)
+    writer.writerow(['name', 'age'])
+    writer.writerow(['Krish', 32])
+
+# read each row of a csv file.
+with open("example.csv", mode='r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+# dates
+from datetime import datetime, timedelta
+now = datetime.now()
+print(now)
+yesterday = now-timedelta(days=1)
+print(yesterday)
+
+# time
+import time
+print(time.time())
+time.sleep(2) # sleep for 2 secs.
+```
