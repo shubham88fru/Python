@@ -434,3 +434,64 @@ import time
 print(time.time())
 time.sleep(2) # sleep for 2 secs.
 ```
+
+# File ops
+
+```python
+# open a file in read mode.
+import os
+
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# read a file line by line
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line)
+
+# write to a file with overwriting.
+with open("example.txt", "w") as file:
+    file.write("Hello World!\n")
+    file.write("this is a new line.")
+
+# write to a file without overwriting (append mode)
+with open("example.txt", "a") as file:
+    file.write("Append operation took place")
+
+# write a list of lines.
+lst = ["first line", "second line", "third line"]
+with open("examples.txt", "a") as file:
+    file.writelines(lst)
+
+# writing bytes
+data = b"\x00\x01\x02\x03\x04"
+with open("example.bin", "wb") as file:
+    file.write(data)
+
+# writing and then reading the file.
+# `w+` mode open the file in read and write mode.
+# If the file doesn't exist, its created and during writing,
+# all its og content are overwritten.
+with open("example.txt", "w+") as file:
+    file.write("Hello word\n")
+    file.write("This is a new line \n")
+
+    file.seek(0)  # move the file cursor to start.
+    content = file.read()
+    print(content)
+
+# create a new directory
+new_dir = "package"
+os.mkdir(new_dir)
+print(f"Directory '{new_dir}' create")
+
+import os
+folders = os.listdir('.') # list all folders in current directory.
+print(folders)
+
+dir_name="folder"
+file_name="file.txt"
+full_path=os.path.join(dir_name,file_name)
+print(full_path) # --> `folder\file.txt`
+```
