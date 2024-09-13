@@ -499,4 +499,70 @@ print(full_path) # --> `folder\file.txt`
 # Exception handling
 ```python
 
+# try-except block
+try:
+    a=b
+except:
+    print("Exception occurred")
+
+try:
+    result=1/0
+except ZeroDivisionError as e:
+    print(e)
+except Exception as e:
+    print(e)
+
+try:
+    num=int(input("Enter a number"))
+    result=10/num
+except ValueError as ve:
+    print("This is not a valid number")
+except ZeroDivisionError as ze:
+    print("enter denominator greater than 0")
+
+# Try except else block
+try:
+    num=int(input("Enter a num"))
+    result=10/num
+except ValueError as ve:
+    print("That's not a valid number")
+except ZeroDivisionError as ze:
+    print("You can't divide by zero!")
+except Exception as ex:
+    print(ex)
+else:
+    # This block executes only if 
+    # there was no exception in the try block.
+    print(f"This is the {result}")
+
+# Try except else and finally
+try:
+    num=int(input("Enter a num"))
+    result=10/num
+except ValueError as ve:
+    print("That's not a valid number")
+except ZeroDivisionError as ze:
+    print("You can't divide by zero!")
+except Exception as ex:
+    print(ex)
+else:
+    # This block executes only if 
+    # there was no exception in the try block.
+    print(f"Only if no exception in try: {result}")
+finally:
+    # This block executes no matter what,
+    # whether exception happens or not.
+    print(f"No matter whether or not exception happens in finally.")
+
+# Exception handling with file ops
+file = None
+try:
+    file=open("example1.txt", "r")
+    content=file.read()
+    print(content)
+except FileNotFoundError as fe:
+    print("The specified file doesn't exist")
+finally:
+    if "file" is not None and not file.closed:
+        file.close()
 ```
