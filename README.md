@@ -566,3 +566,83 @@ finally:
     if "file" is not None and not file.closed:
         file.close()
 ```
+
+# OOPS
+
+```python
+# a class
+class Car:
+    pass
+
+
+# an object of class
+audi = Car()
+bmw = Car()
+
+
+# constructor
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age=age
+
+dog1=Dog("Maxi", 2)
+dog2=Dog("Reilly", 4)
+
+# instance methods
+class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def bark(self):
+        print(f"{self.name} says woof!")
+
+dog3=Dog("Sammy", 5)
+dog3.bark()
+
+# Inheritance
+class Car:
+    def __init__(self, windows, doors, enginetype):
+        self.windows=windows
+        self.doors=doors
+        self.enginetype=enginetype
+    
+    def drive(self):
+        print(f"The person will drive the {self.enginetype} car.")
+
+class BMW(Car): # BMW inheriting from Car
+    def __init__(self, windows, doors, enginetype, is_selfdriving):
+        super().__init__(windows, doors, enginetype) # call parent's const.
+        self.is_selfdriving=is_selfdriving
+    
+    
+    def selfdriving(self):
+        print(f"BMW supports self driving: {self.is_selfdriving}")
+
+bmw1=BMW(4,5,"electric",True)
+bmw1.selfdriving()
+
+# Python supports multiple inheritance
+class Animal:
+    def __init__(self, name):
+        self.name=name
+    
+    def speak(self):
+        print("Subclasses must implement this method")
+
+class Pet:
+    def __init__(self, owner):
+        self.owner=owner
+
+class Dog(Animal, Pet): # Dog inheriting from Animal and Pet.
+    def __init__(self, name, owner):
+        Animal.__init__(self, name) # instead of super.__init__
+        Pet.__init__(self, owner) # instead of super.__init__
+    
+    def speak(self): # overrides speak from Animal super class.
+        return f"{self.name} says woof!"
+
+dog=Dog("Buddy", "Krish")
+dog.speak()
+```
