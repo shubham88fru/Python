@@ -645,4 +645,49 @@ class Dog(Animal, Pet): # Dog inheriting from Animal and Pet.
 
 dog=Dog("Buddy", "Krish")
 dog.speak()
+
+# Polymorphism (achieved through method overriding and abstract classes.)
+# Method overriding -> Method overriding allows a child class to provide a 
+# specific implementation of a method that is already defined in its parent class.
+class Animal:
+    def speak(self):
+        return "Sound of animal"
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+dog = Dog()
+cat = Cat()
+print(dog.speak())
+print(cat.speak())
+
+def animal_speak(animal):
+    print(animal.speak())
+
+animal_speak(dog)
+animal_speak(cat)
+
+# Creating abstract classes.
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self): # implementation needs to be in subclasses
+        pass
+
+class Car(Vehicle):
+    def start_engine(self):
+        return "Car engine started."
+
+class MotorCycle(Vehicle):
+    def start_engine(self):
+        return "Motorcycle engine started."
+
+car = Car()
+motorcycle = MotorCycle()
 ```
