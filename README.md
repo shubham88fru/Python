@@ -690,4 +690,30 @@ class MotorCycle(Vehicle):
 
 car = Car()
 motorcycle = MotorCycle()
+
+# Magic methods.
+# Magic methods in python, also known as dunder methods (double underscore
+# methods), are special methods that start and end with double underscores.
+# These methods enable you to define the behavior of objects for built-in
+# operations, such as arithmetic operations, comparisons, and more.
+
+# Magic methods are predefined methods in Python that you can override to
+# change the behavior of your objects. Some common magic methods include:
+# 1. __init__: Initializes a new instance of a class.
+# 2. __str__: Returns a string representation of an object.
+# 3. __repr__: Returns an official string representation of an object.
+# 4. __len__: Returns the length of an object.
+# 5. __getitem__: Gets an item from a container.
+# 6. __setitem__: Sets an item in a container.
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self): # override the inbuilt to string method.
+        return f"{self.name}, {self.age} years old."
+
+person=Person("Shubham", 28)
+print(person) # --> Shubham, 28 years old.
 ```
