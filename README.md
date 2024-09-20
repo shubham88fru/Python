@@ -743,3 +743,105 @@ v2 = Vector(4, 5)
 
 print(v1+v2) # --> Vector(6, 8)
 ```
+
+# Advanced Python
+
+```python
+# Iterators
+# Iterators provide a way to access elements of a collection sequentially
+# without exposing the underlying structure.
+my_list = [1, 2, 3, 5, 6]
+iterator = iter(my_list)
+next(iterator) # --> 1
+next(iterator) # --> 2
+
+# Generators
+#  are a simpler way to creat iterators. They use the yield keyword
+# to produce a series of values lazily, which means they generate values on the
+# fly and do not store them in memory.
+def square(n):
+    for i in range(3):
+        yield i**2
+
+gen = square(3)
+next(gen) # --> 0
+next(gen) # --> 1
+next(gen) # --> 4
+
+# one usecase of generators - Reading a large file.
+def read_large_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            yield line
+
+            
+# Function copy
+def welcome():
+    return "Welcome to the advanced python course"
+
+welcome()
+wel=welcome()
+print(wel())
+del welcome
+print(wel()) # still works even after deleting welcome.
+
+# closures
+def main_welcome():
+    msg="Welcome"
+    def sub_welcome_method():
+        print(f"Welcome {msg} to the advanced python course.")
+        print("Please learn these concepts properly.")
+        
+    return sub_welcome_method
+
+# Decorators
+# Allows one to modify the behavior of a function or class method. They are
+# commonly used to add functionality to functions or methods without modifying
+# their actual code.
+
+def execute_func(func):
+    func()
+
+
+# The function print_me will be passed as an argument to
+# execute_fuc
+@execute_func
+def print_me(str):
+    print(str)
+
+def my_decorator(func):
+    def wrapper():
+        print("Before the func is called..")
+        func()
+        print("After the func is called..")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Before the func is called..
+# Hello!
+# After the func is called..
+
+# Decorator with arguments.
+def repeat(n):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(n):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@repeat(3)
+def say_hello():
+    print("Hello")
+
+say_hello()
+# Output:
+# Hello
+# Hello
+# Hello
+```
