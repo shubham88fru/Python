@@ -845,3 +845,78 @@ say_hello()
 # Hello
 # Hello
 ```
+
+# Data Analysis with Python
+## numpy
+```python
+# Numpy is a fundamental library for scientific computing in python. It provides
+# support for arrays and matrices, along with a collection of mathematical functions
+# to operate on these data structures.
+import numpy as np
+
+# create array using numpy
+# creating a 1D array.
+arr1 = np.array([1, 2,3,4,5])
+print(arr1.ndim) # number of dimensions --> 1
+print(arr1) # [ 1 2 3 4 5 ]
+print(type(arr1))
+print(arr1.shape) # (5,) --> a single dimension array with 5 elements.
+
+arr2 = np.array([[1,2,3,4,5]])
+print(arr2.ndim) # 2
+arr2.reshape(1,5) # 1 row and 5 columns.
+
+arr3 = np.array([[1,2,3,4,5], [6,7,8,9,10]])
+print(arr3.size) # m*n --> 10
+print(arr3.shape) # (2, 5) --> 2 rows and 5 columns.
+
+arr4 = np.arange(0, 10, 2) # from 0 to 10 with steps size of 2.
+print(arr4) # [0, 2, 4, 6, 8, 10]
+arr4.reshape(5, 1) # 5 rows and 1 column.
+
+arr5 = np.ones((3,4)) # a 3*4 np array with all ones.
+
+arr6 = np.eye(3) # create a 3*3 identity matrix.
+
+# Numpy vectorized operations
+arr1 = np.array([1,2,3,4,5])
+arr2 = np.array([10,20,30,40,50])
+print(f"Element wise addition: {arr1 + arr2}") # [11 22 33 44 55]
+print(f"Element wise subtraction: {arr1 - arr2}") # [-9 -18 -27 -36 -45]
+print(f"Element wise mult: {arr1 * arr2}") # [10 40 90 160 250]
+print(f"Element wise division: {arr1 / arr2}") # [0.1 0.1 0.1 0.1 0.1]
+
+# Universal functions (will apply to each element of the array)
+arr = np.array([2,3,4,5,6])
+print(np.sqrt(arr))
+print(np.exp(arr))
+print(np.sin(arr))
+print(np.log(arr))
+
+# Array slicing and indexing
+arr=np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+print("Array: \n", arr) # 3*4 np array.
+print(arr[0][0]) # 1
+print(arr[0:2]) # 0th and 1st rows --> [[1 2 3 4] [5 6 7 8]]
+print(arr[1:]) # everything from 2nd row --> [[5,6,7,8] [9,10,11,12]]
+print(arr[1:, 1:3]) # [[6 7] [10 11]]
+
+# everything that matches row=1+ and column=2+
+print(arr[1:, 2:]) # --> [[7 8] [11 12]]
+
+# Statistical operations
+data = np.array([1,2,3,4,5])
+mean = np.mean(data) # calculates mean
+std_dev = np.std(data) # calculates standard deviation
+normalized_data = (data-mean)/std_dev # Normalize the data
+print("Normalized data: ", normalized_data)
+
+# Logical operations
+data = np.array([1,2,3,4,5,6,7,8,9,10])
+print(data[data>5]) # all elements of the array that are greater than 5.
+```
+
+## pandas
+```python
+
+```
