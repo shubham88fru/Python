@@ -918,5 +918,100 @@ print(data[data>5]) # all elements of the array that are greater than 5.
 
 ## pandas
 ```python
+# Pands is a data manipulation library in Python, widely used for data analysis
+# and data cleaning. It provides two primary data structures: Series and DataFrame.
+# A series is a one-dimensional array-like object, while a DataFrame is a two-dimensional,
+# size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns).
 
+# Series
+# A pandas series is a one-dimensional array-like object that can hold any data type.
+# It is similar to a column in a table.
+import pandas as pd
+data=[1,2,3,4,5]
+series=pd.Series(data) # series from array/list
+print("Series \n", series)
+
+# create a series from dictionary.
+data={'a':1, 'b': 2, 'c': 3}
+series_dict=pd.Series(data)
+print(series_dict)
+
+# Dataframe
+# create a Dataframe from a dictionary of list.
+
+data={
+    'Name': ['Krish', 'John', 'Jack'],
+    'Age': [25, 30, 45],
+    'City': ['Bangalore', 'New York', 'Tempe']
+}
+df = pd.DataFrame(data)
+print(df)
+# output
+#######################
+#   Name    Age     City
+# 0 Krish   25  Bangalore
+# 1 John    30  New York
+# 2 Jack    45  Tempe
+#######################
+print(type(df))
+
+# dataframe to numpy array.
+import numpy as np
+narr = np.array(df)
+
+# Create a Data frame from a list of Dictionaries
+data=[
+    { 'Name': 'Krish', 'Age': 32, 'City': 'Bangalore' },
+    { 'Name': 'John', 'Age': 34, 'City': 'Bangalore' },
+    { 'Name': 'Bappy', 'Age': 32, 'City': 'Bangalore' },
+    { 'Name': 'Jack', 'Age': 32, 'City': 'Bangalore' }
+]
+df = pd.DataFrame(data)
+print(df)
+# output
+#########################
+#   Name    Age     City
+# 0 Krish   32  Bangalore
+# 1 John    34  Bangalore
+# 2 Bappy   32  Bangalore
+# 3 Jack    32  Bangalore
+#########################
+
+# reading a csv file
+df=pd.read_csv('sales_data.csv')
+df.head(5) # table of first 5 rows.
+df.tail(5) # last 5 records.
+
+name_column = df['Name'] # read the 'Name' column. Returns a series (column).
+
+# loc[] is primarily used for label-based indexing. 
+# It selects data based on the labels of rows and columns.
+row=df.loc['row_label'] # Select row by label
+
+multi=df.loc[:, ['col1', 'col2']] # Select multiple columns
+
+slic=df.loc['row1':'row3', 'col1':'col3'] # Slice rows and columns by label
+
+bindex=df.loc[df['column'] > 5] # Boolean indexing
+
+# iloc[] is used for integer-based indexing. 
+# It selects data based on the integer position of rows and columns.
+iloc_1=df.iloc[0] # Select row by integer position
+
+iloc_2=df.iloc[:, [0, 2]] # Select multiple columns by position
+
+iloc_2=df.iloc[0:3, 0:3] # Slice rows and columns by position
+
+iloc_2=df.iloc[[1, 3, 5], [2, 4]] # Select specific rows and columns
+
+df.at[1, 'Age'] # get the value from 1st row's 'Age' column.
+
+# adding a new column to a data frame.
+df['Salary'] = [50000, 60000, 70000] # adds a salary column.
+
+# remove a row
+df.drop(0,inplace=True) # drop 0th row.
+df.drop('Salary', axis=1,inplace=True) # drop 'Salary' column and mutate the df.
+
+df['Age'] = df['Age']+1 # Increment each value in df column by 1.
 ```
