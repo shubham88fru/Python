@@ -1014,4 +1014,50 @@ df.drop(0,inplace=True) # drop 0th row.
 df.drop('Salary', axis=1,inplace=True) # drop 'Salary' column and mutate the df.
 
 df['Age'] = df['Age']+1 # Increment each value in df column by 1.
+
+# Data manipulation and analysis with Pandas.
+import pandas as pd
+
+df=pd.read_csv("data.csv")
+
+# fetch first 5 rows.
+df.head(5)
+
+# last five rows.
+df.tail(5)
+
+# get stats - count, mean, median etc
+df.describe()
+
+# Handling missing values in data.
+df.isnull() # prints the df, where each cell if either True/False depending if its empty.
+
+# fill the missing values in any cell, with a default value.
+df.fillna(0) # set inplace=True for inplace change.
+
+# fill missing values with mean of the column.
+df["Sales_fillNA"] = df["Sales"].fillna(df['Sales'].mean()) # fill any missing values in sales column, with the mean of that column.
+
+# Renaming a column.
+df = df.rename(columns={'Date': 'Sale Date'}) # Rename 'Date' column to 'Sale Date'
+
+# change datatype of a column.
+df['value_new'] = df['value'].astype(float) # change datatype of value column to float.
+
+# Apply some transformation (function) to a column.
+df['New Value'] = df['Value'].apply(lambda x: x*2) # multiple each value of 'Value' column with 2.
+
+# Data aggregating and grouping
+grouped_mean = df.groupby('Product')['Value'].mean() # group by the products and for each group, find the mean of "value" column.
+
+grouped_sum = df.groupby(['Product', 'Region'])['Value'].sum() # group by 'Product' and 'Region' column and for each group, find the sum of 'value' column.
+
+# apply multiple aggregate functions
+grouped_agg = df.groupby('Region')['Value'].agg(['mean', 'sum', 'count']) # group by 'Region' and for each group calculate mean, sum and count of 'value' column.
+
+# Merging and joining data frames.
+df1 = pd.DataFrame({'Key': ['A', 'B', 'C'], 'Value1': [1, 2, 3]})
+df2 = pd.DataFrame({'Key': ['A', 'B', 'C'], 'Value2': [4, 5, 6]})
+
+pd.merge(df1, df2, on="Key", how="inner") # inner join on key column.
 ```
