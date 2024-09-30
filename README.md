@@ -1066,4 +1066,45 @@ json='' # some json
 df=pd.read_json(json) # read the json and convert to a df.
 json=df.to_json() # convert the df to json
 json=df.to_json(orient="records")
+
+# Matplotlib
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5,6]
+y=[1,4,9,16,25]
+
+# create a line plot
+plt.plot(x, y) # plot a X, Y line graph.
+plt.xlabel('X axis') # x axis label
+plt.ylabel('Y axis') # y axis label
+plt.title("Basic line plot") # title of the entire plot.
+plt.show() # display the plot.
+
+plt.plot(x, y, color="red", linestyle="--")
+
+# Bar plot
+categories=['A', 'B', 'C', 'D', 'E']
+values=[5,7,3,8,6]
+
+# create a bar plot
+plt.bar(categories, values, color='purple')
+
+df.plot(kind='bar', color="teal") # plot a bar plot from a dataframe.
+
+# Histogram
+data = [1,2,2,3,3,3,4,4,4,4,5,5,5,5,5]
+plt.hist(data, bins=5)
+
+# scatter plot
+x = [1,2,3,4,5]
+y = [2,3,4,5,6]
+
+plt.scatter(x,y,color="blue",marker="x")
+
+# pie charts
+labels=['A', 'B', 'C', 'D']
+sizes=[30,20,40,10]
+colors=['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+explode=(0.1, 0, 0, 0)
+
+plt.pie(sizes, labels, colors=colors)
 ```
