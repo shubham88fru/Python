@@ -1107,4 +1107,47 @@ colors=['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
 explode=(0.1, 0, 0, 0)
 
 plt.pie(sizes, labels, colors=colors)
+
+# Visualizations using seaborn.
+# Seaborn is a python visualization library based on matplotlib.
+import seaborn as sns
+
+# Basic plotting with seaborn
+tips = sns.load_dataset('tips')
+
+##scatter plot
+import matplotlib.pyplot as plt
+sns.scatterplot(x="total_bill", y='tip', data=tips)
+plt.title("Scatter plot of total bill v/s tip") # using matplotlib alongside seaborn
+plt.show()
+
+# Line plot
+sns.lineplot(x='size', y='total_bill', data=tips)
+plt.title("Line plot of total bill by size")
+plt.show()
+
+# Categorical plots
+# bar plots
+sns.barplot(x='day', y='total_bill', data=tips)
+plt.title("Bar plot of total bill by day")
+plt.show()
+
+# Box plot
+sns.boxplot(x="day", y="total_bill", data=tips)
+
+# Violin plot
+sns.violinplot(x='day', y='total_bill', data=tips)
+
+# histogram
+sns.histplot(tips['total_bill'], bins=10, kde=True)
+
+# kde plot
+sns.kdeplot(tips['total_bill'], fill=True)
+
+# Pair plot
+sns.pairplot(tips) # builds a plot for every pair of columns.
+
+# Heatmap
+corr=tips[['total_bill', 'tip', 'size']].corr()
+sns.heatmap(corr, annot=True, cmap='coolwarm')
 ```
