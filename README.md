@@ -1060,4 +1060,10 @@ df1 = pd.DataFrame({'Key': ['A', 'B', 'C'], 'Value1': [1, 2, 3]})
 df2 = pd.DataFrame({'Key': ['A', 'B', 'C'], 'Value2': [4, 5, 6]})
 
 pd.merge(df1, df2, on="Key", how="inner") # inner join on key column.
+
+# Reading data from various sources using pandas. (read_* functions)
+json='' # some json
+df=pd.read_json(json) # read the json and convert to a df.
+json=df.to_json() # convert the df to json
+json=df.to_json(orient="records")
 ```
