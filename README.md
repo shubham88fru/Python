@@ -1151,3 +1151,24 @@ sns.pairplot(tips) # builds a plot for every pair of columns.
 corr=tips[['total_bill', 'tip', 'size']].corr()
 sns.heatmap(corr, annot=True, cmap='coolwarm')
 ```
+
+# Logging
+```python
+import logging
+
+# configuring the logging more.
+logging.basicConfig(
+    filename='app.log', # write log to this file.
+    filemode='w',
+    level=logging.DEBUG,
+    format='%(asctime)s-%(name)-%(levelname)s-%(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+# log a message
+logging.debug("This is a debug message.")
+logging.info("This is a info message.")
+logging.warning("This is a warning message.")
+logging.error("This is an error message.")
+logging.critical("This is a critical message.")
+```
