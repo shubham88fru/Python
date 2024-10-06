@@ -1171,4 +1171,29 @@ logging.info("This is a info message.")
 logging.warning("This is a warning message.")
 logging.error("This is an error message.")
 logging.critical("This is a critical message.")
+
+# Logging with multiple loggers.
+# We can create multiple loggers for different parts of the application.
+
+import logging
+
+# logger for module 1
+logger1 = logging.getLogger("module1")
+logger1.setLevel(logging.DEBUG) # logger1's level set to DEBUG.
+
+# logger for module 2
+logger2 = logging.getLogger("module2")
+logger2.setLevel(logging.WARNING) # logger2's level set to WARNING
+
+# global logger setting - applies to all loggers.
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+# using different loggers.
+logger1.debug("This is debug message for module 1")
+logger2.warning("This is a warning message for module 2")
+
 ```
