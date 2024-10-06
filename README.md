@@ -1197,3 +1197,37 @@ logger1.debug("This is debug message for module 1")
 logger2.warning("This is a warning message for module 2")
 
 ```
+
+# Multithreading and Multiprocessing in python
+```python
+import threading
+import time
+
+def print_number():
+    for i in range(5):
+        time.sleep(2)
+        print(f"Number: {i}")
+
+def print_letter():
+    for letter in "abcde":
+        time.sleep(2)
+        print(f"Letter: {letter}")
+
+#creating threads 
+t1 = threading.Thread(target=print_number) # execute print_number on thread t1
+t2 = threading.Thread(target=print_letter) # execute print_letter on thread t2
+
+t=time.time()
+
+# start the thread
+t1.start()
+t2.start()
+
+# Wait for t1 and t2 to complete
+t1.join()
+t2.join()
+
+finished_time=time.time()-t
+
+print(finished_time)
+```
